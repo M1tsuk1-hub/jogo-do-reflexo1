@@ -187,6 +187,13 @@
             infoPanel.style.display = 'none';
             restartBtn.style.display = 'none';
             renderTable();
+            //insira um botao para voltar a interfazce inicial
+            const backBtn = document.createElement('button');
+            backBtn.textContent = 'Voltar ao Menu';
+            backBtn.addEventListener('click', () => {
+                location.reload();
+            });
+            document.body.appendChild(backBtn); 
         });
     </script>
 </body>
