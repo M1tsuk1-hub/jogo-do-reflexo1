@@ -77,11 +77,11 @@
         #backBtn {
             display: none;
             padding: 12px 36px;
-            background: #8e44ad;
+            background: #e67e22; /* cor laranja adicionada */
         }
 
         #backBtn:hover {
-            background: #6c3483;
+            background: #ca6f1e;
         }
 
         #gameArea {
