@@ -1,10 +1,12 @@
         body {
             font-family: Arial, sans-serif;
-            background: #e9ecef;
+            background: linear-gradient(135deg, #e9ecef 0%, #b3c6e0 100%), 
+                        url('noite.png') no-repeat center center fixed;
+            background-size: cover;
             margin: 0;
             padding: 0;
         }
-        
+
         main {
             max-width: 480px;
             margin: 40px auto;
@@ -13,21 +15,21 @@
             box-shadow: 0 2px 8px rgba(0,0,0,0.08);
             padding: 24px 16px 32px 16px;
         }
-        
+
         h1 {
             text-align: center;
             font-size: 2em;
             margin-bottom: 18px;
             color: #2c3e50;
         }
-        
+
         #nameForm {
             display: flex;
             flex-direction: column;
             align-items: center;
             margin-bottom: 18px;
         }
-        
+
         #nameInput {
             padding: 8px;
             font-size: 1em;
@@ -37,22 +39,49 @@
             width: 90%;
             max-width: 320px;
         }
-        
-        #startBtn {
-            padding: 10px 28px;
+
+        #startBtn,
+        #restartBtn,
+        #backBtn {
             font-size: 1em;
-            background: #2980b9;
             color: #fff;
             border: none;
             border-radius: 6px;
             cursor: pointer;
             transition: background 0.2s;
+            display: block;
+            margin: 22px auto 0 auto;
         }
-        
+
+        #startBtn {
+            padding: 10px 28px;
+            background: #2980b9;
+        }
+
         #startBtn:hover {
             background: #1c5d86;
         }
-        
+
+        #restartBtn {
+            display: none;
+            padding: 12px 36px;
+            background: #27ae60;
+        }
+
+        #restartBtn:hover {
+            background: #219150;
+        }
+
+        #backBtn {
+            display: none;
+            padding: 12px 36px;
+            background: #8e44ad;
+        }
+
+        #backBtn:hover {
+            background: #6c3483;
+        }
+
         #gameArea {
             width: 100%;
             max-width: 400px;
@@ -65,7 +94,7 @@
             overflow: hidden;
             display: none;
         }
-        
+
         #square {
             width: 40px;
             height: 40px;
@@ -76,76 +105,42 @@
             display: none;
             transition: background 0.2s;
         }
-        
+
         #square:active {
             background: #217dbb;
         }
-        
+
         .info {
             display: flex;
             justify-content: space-between;
             margin: 12px 0;
             font-size: 1.2em;
         }
-        
+
         #message {
             text-align: center;
             font-size: 1.2em;
             color: #e74c3c;
             min-height: 1.5em;
         }
-        
-        #restartBtn {
-            display: none;
-            margin: 22px auto 0 auto;
-            padding: 12px 36px;
-            font-size: 1em;
-            background: #27ae60;
-            color: #fff;
-            border: none;
-            border-radius: 6px;
-            cursor: pointer;
-            transition: background 0.2s;
-        }
-        
-        #restartBtn:hover {
-            background: #219150;
-        }
-        
-        #backBtn {
-            display: none;
-            margin: 22px auto 0 auto;
-            padding: 12px 36px;
-            font-size: 1em;
-            background: #8e44ad;
-            color: #fff;
-            border: none;
-            border-radius: 6px;
-            cursor: pointer;
-            transition: background 0.2s;
-        }
-        
-        #backBtn:hover {
-            background: #6c3483;
-        }
-        
+
         #scoreTable {
             width: 100%;
             border-collapse: collapse;
             margin-top: 28px;
         }
-        
+
         #scoreTable th,
         #scoreTable td {
             border: 1px solid #bbb;
             padding: 8px;
             text-align: center;
         }
-        
+
         #scoreTable th {
             background: #f8f8f8;
         }
-        
+
         @media (max-width: 500px) {
             #gameArea {
                 max-width: 98vw;
