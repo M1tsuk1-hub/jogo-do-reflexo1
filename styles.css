@@ -7,7 +7,7 @@
             background-blend-mode: overlay;
             margin: 0;
             padding: 0;
-            color: #000; /* Cor preta para todo o texto */
+            color: #222; /* Cor mais visível para o texto */
         }
 
         main {
@@ -23,7 +23,7 @@
             text-align: center;
             font-size: 2em;
             margin-bottom: 18px;
-            color: #000; /* Preto */
+            color: #222; /* Cor mais visível */
         }
 
         #nameForm {
@@ -31,7 +31,7 @@
             flex-direction: column;
             align-items: center;
             margin-bottom: 18px;
-            color: #000; /* Preto */
+            color: #222;
         }
 
         #nameInput {
@@ -42,7 +42,7 @@
             margin-bottom: 10px;
             width: 90%;
             max-width: 320px;
-            color: #000; /* Preto */
+            color: #222;
             background: #ffffff5b;
         }
 
@@ -50,7 +50,7 @@
         #restartBtn,
         #backBtn {
             font-size: 1em;
-            color: #000; /* Preto */
+            color: #fff; /* Letras brancas para contraste */
             border: none;
             border-radius: 6px;
             cursor: pointer;
@@ -99,7 +99,7 @@
             border-radius: 10px;
             overflow: hidden;
             display: none;
-            color: #000; /* Preto */
+            color: #222;
         }
 
         #square {
@@ -122,13 +122,13 @@
             justify-content: space-between;
             margin: 12px 0;
             font-size: 1.2em;
-            color: #000; /* Preto */
+            color: #222;
         }
 
         #message {
             text-align: center;
             font-size: 1.2em;
-            color: #000; /* Preto */
+            color: #222;
             min-height: 1.5em;
         }
 
@@ -136,7 +136,7 @@
             width: 100%;
             border-collapse: collapse;
             margin-top: 28px;
-            color: #000; /* Preto */
+            color: #222;
         }
 
         #scoreTable th,
@@ -144,7 +144,7 @@
             border: 1px solid #bbbbbb81;
             padding: 8px;
             text-align: center;
-            color: #000; /* Preto */
+            color: #222;
         }
 
         #scoreTable th {
