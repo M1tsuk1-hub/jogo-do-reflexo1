@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <title>Jogo: Testador de Reflexo</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="responsive.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
+
 <body>
     <main>
         <h1>Teste seu Reflexo</h1>
@@ -188,15 +190,16 @@
             infoPanel.style.display = 'none';
             restartBtn.style.display = 'none';
             renderTable();
-            
+
             //insira um botao para voltar a interfazce inicial
             const backBtn = document.createElement('button');
             backBtn.textContent = 'Voltar ao Menu';
             backBtn.addEventListener('click', () => {
                 location.reload();
             });
-            document.body.appendChild(backBtn); 
+            document.body.appendChild(backBtn);
         });
     </script>
 </body>
+
 </html>
