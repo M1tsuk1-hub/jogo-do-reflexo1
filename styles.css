@@ -1,18 +1,19 @@
         body {
             font-family: Arial, sans-serif;
-            background: 
-                linear-gradient(135deg, #e9ecef 0%, #b3c6e0 100%),
+            background:
+                linear-gradient(135deg, #e9ecef73 0%, #b3c6e077 100%),
                 url('noite.png') no-repeat center center fixed;
             background-size: cover, cover;
             background-blend-mode: overlay;
             margin: 0;
             padding: 0;
+            color: #000; /* Cor preta para todo o texto */
         }
 
         main {
             max-width: 480px;
             margin: 40px auto;
-            background: #fff;
+            background: #ffffff00;
             border-radius: 12px;
             box-shadow: 0 2px 8px rgba(0,0,0,0.08);
             padding: 24px 16px 32px 16px;
@@ -22,7 +23,7 @@
             text-align: center;
             font-size: 2em;
             margin-bottom: 18px;
-            color: #2c3e50;
+            color: #000; /* Preto */
         }
 
         #nameForm {
@@ -30,23 +31,26 @@
             flex-direction: column;
             align-items: center;
             margin-bottom: 18px;
+            color: #000; /* Preto */
         }
 
         #nameInput {
             padding: 8px;
             font-size: 1em;
             border-radius: 5px;
-            border: 1px solid #bbb;
+            border: 1px solid #bbbbbb7c;
             margin-bottom: 10px;
             width: 90%;
             max-width: 320px;
+            color: #000; /* Preto */
+            background: #ffffff5b;
         }
 
         #startBtn,
         #restartBtn,
         #backBtn {
             font-size: 1em;
-            color: #fff;
+            color: #000; /* Preto */
             border: none;
             border-radius: 6px;
             cursor: pointer;
@@ -77,7 +81,7 @@
         #backBtn {
             display: none;
             padding: 12px 36px;
-            background: #e67e22; /* cor laranja adicionada */
+            background: #e67e22;
         }
 
         #backBtn:hover {
@@ -91,10 +95,11 @@
             border: 2px solid #333;
             position: relative;
             margin: 0 auto 18px auto;
-            background: #f0f0f0;
+            background: #f0f0f098;
             border-radius: 10px;
             overflow: hidden;
             display: none;
+            color: #000; /* Preto */
         }
 
         #square {
@@ -117,12 +122,13 @@
             justify-content: space-between;
             margin: 12px 0;
             font-size: 1.2em;
+            color: #000; /* Preto */
         }
 
         #message {
             text-align: center;
             font-size: 1.2em;
-            color: #e74c3c;
+            color: #000; /* Preto */
             min-height: 1.5em;
         }
 
@@ -130,17 +136,19 @@
             width: 100%;
             border-collapse: collapse;
             margin-top: 28px;
+            color: #000; /* Preto */
         }
 
         #scoreTable th,
         #scoreTable td {
-            border: 1px solid #bbb;
+            border: 1px solid #bbbbbb81;
             padding: 8px;
             text-align: center;
+            color: #000; /* Preto */
         }
 
         #scoreTable th {
-            background: #f8f8f8;
+            background: #f8f8f88e;
         }
 
         @media (max-width: 500px) {
