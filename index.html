@@ -1,215 +1,215 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <div style="display: flex; justify-content: center; margin-top: 20px;">
-  <iframe style="border-radius:12px"
-    src="https://open.spotify.com/embed/playlist/54dnJsw6kPp9xz3vacd5WC?utm_source=generator"
-    width="390" height="250"
-    frameBorder="0" allowfullscreen=""
-    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-    loading="lazy">
-  </iframe>
-</div>
-</div>
-    <!-- O restante do seu código permanece igual -->
-    <meta charset="UTF-8">
-   </div> <title>Desafio do Reflexo</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="responsive.css">
-    <link rel="stylesheet" href="keyframes.css"> 
-    <link rel="icon" type="image/x-icon" href="Desafio do Reflexo.png">
-
+  <meta charset="UTF-8">
+  <title>Desafio do Reflexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="responsive.css">
+  <link rel="stylesheet" href="keyframes.css"> 
+  <link rel="icon" type="image/x-icon" href="Desafio do Reflexo.png">
+</head>
 <body>
-    <main>
-        <h1>Desafio do Reflexo</h1>
-        <form id="nameForm" autocomplete="off">
-            <input id="nameInput" type="text" placeholder="Digite seu nome completo" required maxlength="60" />
-            <select id="difficultySelect" required style="margin-bottom:10px; width:90%; max-width:320px;">
-                <option value="" disabled selected>Selecione a dificuldade</option>
-                <option value="easy">Fácil</option>
-                <option value="normal">Normal</option>
-                <option value="hard">Difícil</option>
-            </select>
-            <button id="startBtn" type="submit">Iniciar Jogo</button>
-        </form>
-        <section id="gameArea" aria-label="Área do jogo">
-            <div id="square" tabindex="0" aria-label="Quadrado para clicar"></div>
-        </section>
-        <div class="info" id="infoPanel" style="display:none;">
-            <div id="score" aria-live="polite">Pontos: 0</div>
-            <div id="timer" aria-live="polite">Tempo: 40</div>
-        </div>
-        <div id="message" role="status"></div>
-        <button id="restartBtn" type="button">Reiniciar</button>
-        <table id="scoreTable">
-            <thead>
-                <tr>
-                    <th>Nome</th>
-                    <th>Pontuação</th>
-                </tr>
-            </thead>
-            <tbody>
-                <!-- Scores serão inseridos aqui -->
-            </tbody>
-        </table>
-    </main>
-    <script>
-        // Elementos
-        const square = document.getElementById('square');
-        const gameArea = document.getElementById('gameArea');
-        const startBtn = document.getElementById('startBtn');
-        const infoPanel = document.getElementById('infoPanel');
-        const scoreDiv = document.getElementById('score');
-        const timerDiv = document.getElementById('timer');
-        const messageDiv = document.getElementById('message');
-        const restartBtn = document.getElementById('restartBtn');
-        const nameForm = document.getElementById('nameForm');
-        const nameInput = document.getElementById('nameInput');
-        const difficultySelect = document.getElementById('difficultySelect');
-        const scoreTable = document.getElementById('scoreTable').querySelector('tbody');
+  <main>
+    <h1>Desafio do Reflexo</h1>
+    <!-- Spotify centralizado -->
+    <div style="display: flex; justify-content: center; margin: 20px 0;">
+      <iframe style="border-radius:12px"
+        src="https://open.spotify.com/embed/playlist/54dnJsw6kPp9xz3vacd5WC?utm_source=generator"
+        width="380" height="220"
+        frameborder="0"
+        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+        loading="lazy">
+      </iframe>
+    </div>
+    <form id="nameForm" autocomplete="off">
+      <input id="nameInput" type="text" placeholder="Digite seu nome completo" required maxlength="60" />
+      <select id="difficultySelect" required style="margin-bottom:10px; width:90%; max-width:320px;">
+        <option value="" disabled selected>Selecione a dificuldade</option>
+        <option value="easy">Fácil</option>
+        <option value="normal">Normal</option>
+        <option value="hard">Difícil</option>
+      </select>
+      <button id="startBtn" type="submit">Iniciar Jogo</button>
+    </form>
 
-        // Variáveis de estado
-        let score = 0, timeLeft = 40, gameActive = false, moveInterval, timerInterval;
-        let playerName = '';
-        let scores = [];
-        let moveSpeed = 500;
+    <section id="gameArea" aria-label="Área do jogo">
+      <div id="square" tabindex="0" aria-label="Quadrado para clicar"></div>
+    </section>
 
-        function moveSquare() {
-            const squareSize = square.offsetWidth;
-            const maxX = gameArea.clientWidth - squareSize;
-            const maxY = gameArea.clientHeight - squareSize;
-            const x = Math.floor(Math.random() * maxX);
-            const y = Math.floor(Math.random() * maxY);
-            square.style.left = x + 'px';
-            square.style.top = y + 'px';
-        }
+    <div class="info" id="infoPanel" style="display:none;">
+      <div id="score" aria-live="polite">Pontos: 0</div>
+      <div id="timer" aria-live="polite">Tempo: 40</div>
+    </div>
 
-        function updateScore() {
-            scoreDiv.textContent = `Pontos: ${score}`;
-        }
+    <div id="message" role="status"></div>
+    <button id="restartBtn" type="button">Reiniciar</button>
 
-        function updateTimer() {
-            timerDiv.textContent = `Tempo: ${timeLeft}`;
-        }
+    <table id="scoreTable">
+      <thead>
+        <tr>
+          <th>Nome</th>
+          <th>Pontuação</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Scores serão inseridos aqui -->
+      </tbody>
+    </table>
+  </main>
 
-        function renderTable() {
-            scoreTable.innerHTML = '';
-            scores.slice(0, 10).forEach(item => {
-                const tr = document.createElement('tr');
-                tr.innerHTML = `<td>${item.name}</td><td>${item.score}</td>`;
-                scoreTable.appendChild(tr);
-            });
-        }
+  <script>
+    const square = document.getElementById('square');
+    const gameArea = document.getElementById('gameArea');
+    const startBtn = document.getElementById('startBtn');
+    const infoPanel = document.getElementById('infoPanel');
+    const scoreDiv = document.getElementById('score');
+    const timerDiv = document.getElementById('timer');
+    const messageDiv = document.getElementById('message');
+    const restartBtn = document.getElementById('restartBtn');
+    const nameForm = document.getElementById('nameForm');
+    const nameInput = document.getElementById('nameInput');
+    const difficultySelect = document.getElementById('difficultySelect');
+    const scoreTable = document.getElementById('scoreTable').querySelector('tbody');
 
-        function startGame() {
-            score = 0;
-            let difficulty = difficultySelect.value;
-            if (difficulty === "easy") {
-                timeLeft = 50;
-                moveSpeed = 800;
-            } else if (difficulty === "normal") {
-                timeLeft = 40;
-                moveSpeed = 500;
-            } else if (difficulty === "hard") {
-                timeLeft = 30;
-                moveSpeed = 300;
-            } else {
-                timeLeft = 40;
-                moveSpeed = 500;
-            }
-            gameActive = true;
-            updateScore();
-            updateTimer();
-            messageDiv.textContent = '';
-            square.style.display = 'block';
-            gameArea.style.display = 'block';
-            infoPanel.style.display = 'flex';
-            restartBtn.style.display = 'none';
-            moveSquare();
+    let score = 0, timeLeft = 40, gameActive = false, moveInterval, timerInterval;
+    let playerName = '';
+    let scores = [];
+    let moveSpeed = 500;
 
-            moveInterval = setInterval(() => {
-                if (gameActive) moveSquare();
-            }, moveSpeed);
+    function moveSquare() {
+      const squareSize = square.offsetWidth;
+      const maxX = gameArea.clientWidth - squareSize;
+      const maxY = gameArea.clientHeight - squareSize;
+      const x = Math.floor(Math.random() * maxX);
+      const y = Math.floor(Math.random() * maxY);
+      square.style.left = x + 'px';
+      square.style.top = y + 'px';
+    }
 
-            timerInterval = setInterval(() => {
-                if (!gameActive) return;
-                timeLeft--;
-                updateTimer();
-                if (timeLeft <= 0) endGame();
-            }, 1000);
-        }
+    function updateScore() {
+      scoreDiv.textContent = `Pontos: ${score}`;
+    }
 
-        function endGame() {
-            gameActive = false;
-            square.style.display = 'none';
-            messageDiv.textContent = `Fim de jogo! Pontuação final: ${score}`;
-            timerDiv.textContent = 'Tempo esgotado!';
-            clearInterval(moveInterval);
-            clearInterval(timerInterval);
-            restartBtn.style.display = 'block';
-            saveScore();
-        }
+    function updateTimer() {
+      timerDiv.textContent = `Tempo: ${timeLeft}`;
+    }
 
-        function handleSquareClick() {
-            if (!gameActive) return;
-            score++;
-            updateScore();
-            moveSquare();
-        }
+    function renderTable() {
+      scoreTable.innerHTML = '';
+      scores.slice(0, 10).forEach(item => {
+        const tr = document.createElement('tr');
+        tr.innerHTML = `<td>${item.name}</td><td>${item.score}</td>`;
+        scoreTable.appendChild(tr);
+      });
+    }
 
-        function saveScore() {
-            scores.push({ name: playerName, score: score });
-            scores.sort((a, b) => b.score - a.score);
-            renderTable();
-        }
+    function startGame() {
+      score = 0;
+      let difficulty = difficultySelect.value;
+      if (difficulty === "easy") {
+        timeLeft = 50;
+        moveSpeed = 800;
+      } else if (difficulty === "normal") {
+        timeLeft = 40;
+        moveSpeed = 500;
+      } else if (difficulty === "hard") {
+        timeLeft = 30;
+        moveSpeed = 300;
+      } else {
+        timeLeft = 40;
+        moveSpeed = 500;
+      }
 
-        // Eventos
-        nameForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            playerName = nameInput.value.trim();
-            let difficulty = difficultySelect.value;
-            if (!playerName) {
-                nameInput.focus();
-                return;
-            }
-            if (!difficulty) {
-                difficultySelect.focus();
-                return;
-            }
-            nameForm.style.display = 'none';
-            startGame();
-        });
+      gameActive = true;
+      updateScore();
+      updateTimer();
+      messageDiv.textContent = '';
+      square.style.display = 'block';
+      gameArea.style.display = 'block';
+      infoPanel.style.display = 'flex';
+      restartBtn.style.display = 'none';
+      moveSquare();
 
-        square.addEventListener('click', handleSquareClick);
-        square.addEventListener('keydown', (e) => {
-            if (e.key === 'Enter' || e.key === ' ') {
-                handleSquareClick();
-            }
-        });
+      moveInterval = setInterval(() => {
+        if (gameActive) moveSquare();
+      }, moveSpeed);
 
-        restartBtn.addEventListener('click', () => {
-            clearInterval(moveInterval);
-            clearInterval(timerInterval);
-            startGame();
-        });
+      timerInterval = setInterval(() => {
+        if (!gameActive) return;
+        timeLeft--;
+        updateTimer();
+        if (timeLeft <= 0) endGame();
+      }, 1000);
+    }
 
-        // Inicialização
-        window.addEventListener('DOMContentLoaded', () => {
-            gameArea.style.display = 'none';
-            infoPanel.style.display = 'none';
-            restartBtn.style.display = 'none';
-            renderTable();
-            
-            // Insira um botão para voltar à interface inicial com classe para estilização
-            const backBtn = document.createElement('button');
-            backBtn.textContent = 'Voltar ao Menu';
-            backBtn.className = 'back-btn'; // Adicione uma classe para facilitar o CSS
-            backBtn.addEventListener('click', () => {
-                location.reload();
-            });
-            document.body.appendChild(backBtn);
-        });
-    </script>
+    function endGame() {
+      gameActive = false;
+      square.style.display = 'none';
+      messageDiv.textContent = `Fim de jogo! Pontuação final: ${score}`;
+      timerDiv.textContent = 'Tempo esgotado!';
+      clearInterval(moveInterval);
+      clearInterval(timerInterval);
+      restartBtn.style.display = 'block';
+      saveScore();
+    }
+
+    function handleSquareClick() {
+      if (!gameActive) return;
+      score++;
+      updateScore();
+      moveSquare();
+    }
+
+    function saveScore() {
+      scores.push({ name: playerName, score: score });
+      scores.sort((a, b) => b.score - a.score);
+      renderTable();
+    }
+
+    nameForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      playerName = nameInput.value.trim();
+      let difficulty = difficultySelect.value;
+      if (!playerName) {
+        nameInput.focus();
+        return;
+      }
+      if (!difficulty) {
+        difficultySelect.focus();
+        return;
+      }
+      nameForm.style.display = 'none';
+      startGame();
+    });
+
+    square.addEventListener('click', handleSquareClick);
+    square.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        handleSquareClick();
+      }
+    });
+
+    restartBtn.addEventListener('click', () => {
+      clearInterval(moveInterval);
+      clearInterval(timerInterval);
+      startGame();
+    });
+
+    window.addEventListener('DOMContentLoaded', () => {
+      gameArea.style.display = 'none';
+      infoPanel.style.display = 'none';
+      restartBtn.style.display = 'none';
+      renderTable();
+
+      const backBtn = document.createElement('button');
+      backBtn.textContent = 'Voltar ao Menu';
+      backBtn.className = 'back-btn';
+      backBtn.addEventListener('click', () => {
+        location.reload();
+      });
+      document.body.appendChild(backBtn);
+    });
+  </script>
 </body>
 </html>
