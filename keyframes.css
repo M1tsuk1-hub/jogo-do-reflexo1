@@ -1,0 +1,35 @@
+    @keyframes bgColorChange {
+        0% {
+            background: linear-gradient(120deg, rgb(224,231,255) 0%, rgb(179,198,224) 100%);
+        }
+        10% {
+            background: linear-gradient(120deg, rgb(255,224,224) 0%, rgb(224,255,198) 100%);
+        }
+        20% {
+            background: linear-gradient(120deg, rgb(179,224,198) 0%, rgb(224,179,231) 100%);
+        }
+        30% {
+            background: linear-gradient(120deg, rgb(198,255,179) 0%, rgb(179,224,255) 100%);
+        }
+        40% {
+            background: linear-gradient(120deg, rgb(224,179,231) 0%, rgb(198,224,179) 100%);
+        }
+        50% {
+            background: linear-gradient(120deg, rgb(231,224,179) 0%, rgb(255,198,224) 100%);
+        }
+        60% {
+            background: linear-gradient(120deg, rgb(255,255,179) 0%, rgb(179,255,255) 100%);
+        }
+        70% {
+            background: linear-gradient(120deg, rgb(255,179,255) 0%, rgb(198,255,224) 100%);
+        }
+        80% {
+            background: linear-gradient(120deg, rgb(179,255,198) 0%, rgb(224,198,255) 100%);
+        }
+        90% {
+            background: linear-gradient(120deg, rgb(198,224,255) 0%, rgb(255,224,198) 100%);
+        }
+        100% {
+            background: linear-gradient(120deg, rgb(224,231,255) 0%, rgb(179,198,224) 100%);
+        }
+    }
