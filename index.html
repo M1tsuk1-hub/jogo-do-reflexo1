@@ -12,6 +12,7 @@
 <body>
   <main>
     <h1>Desafio do Reflexo</h1>
+
     <!-- Spotify centralizado -->
     <div style="display: flex; justify-content: center; margin: 20px 0;">
       <iframe style="border-radius:12px"
@@ -22,6 +23,10 @@
         loading="lazy">
       </iframe>
     </div>
+
+    <!-- Nome do jogador centralizado -->
+    <div id="playerNameDisplay" style="text-align: center; font-weight: bold; font-size: 1.2em; margin-bottom: 15px; display: none;"></div>
+
     <form id="nameForm" autocomplete="off">
       <input id="nameInput" type="text" placeholder="Digite seu nome completo" required maxlength="60" />
       <select id="difficultySelect" required style="margin-bottom:10px; width:90%; max-width:320px;">
@@ -71,6 +76,7 @@
     const nameInput = document.getElementById('nameInput');
     const difficultySelect = document.getElementById('difficultySelect');
     const scoreTable = document.getElementById('scoreTable').querySelector('tbody');
+    const playerNameDiv = document.getElementById('playerNameDisplay');
 
     let score = 0, timeLeft = 40, gameActive = false, moveInterval, timerInterval;
     let playerName = '';
@@ -179,6 +185,8 @@
         difficultySelect.focus();
         return;
       }
+      playerNameDiv.textContent = `Jogador: ${playerName}`;
+      playerNameDiv.style.display = 'block';
       nameForm.style.display = 'none';
       startGame();
     });
