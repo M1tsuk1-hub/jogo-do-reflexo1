@@ -2,7 +2,7 @@
 🔗 Acesse o jogo online
 
 📋 Descrição
-O Jogo do Reflexo é um mini game interativo desenvolvido para testar e treinar sua velocidade de reação. O objetivo é clicar no círculo colorido o mais rápido possível após ele aparecer na tela. O tempo de resposta é registrado e exibido após cada tentativa.
+O Jogo do Reflexo é um mini game interativo desenvolvido para testar e treinar sua velocidade de reação. O objetivo é clicar no quadrado colorido o mais rápido possível após ele aparecer na tela. O tempo de resposta é registrado e exibido após cada tentativa.
 
 Este projeto é ideal para quem deseja melhorar seus reflexos ou simplesmente se divertir com um desafio rápido e viciante.
 
