@@ -12,9 +12,7 @@
 <body>
   <main>
     <h1>Desafio-do-Reflexo</h1>
-    </div>
 
-    <!-- Nome do jogador centralizado -->
     <div id="playerNameDisplay" style="text-align: center; font-weight: bold; font-size: 1.2em; margin-bottom: 15px; display: none;"></div>
 
     <form id="nameForm" autocomplete="off">
@@ -45,6 +43,7 @@
         <tr>
           <th>Nome</th>
           <th>Pontuação</th>
+          <th>Rank</th>
         </tr>
       </thead>
       <tbody>
@@ -95,7 +94,7 @@
       scoreTable.innerHTML = '';
       scores.slice(0, 10).forEach(item => {
         const tr = document.createElement('tr');
-        tr.innerHTML = `<td>${item.name}</td><td>${item.score}</td>`;
+        tr.innerHTML = `<td>${item.name}</td><td>${item.score}</td><td>${item.rank}</td>`;
         scoreTable.appendChild(tr);
       });
     }
@@ -158,7 +157,8 @@
     }
 
     function saveScore() {
-      scores.push({ name: playerName, score: score });
+      const rankText = difficultySelect.options[difficultySelect.selectedIndex].text;
+      scores.push({ name: playerName, score: score, rank: rankText });
       scores.sort((a, b) => b.score - a.score);
       renderTable();
     }
@@ -204,7 +204,18 @@
       backBtn.textContent = 'Voltar ao Menu';
       backBtn.className = 'back-btn';
       backBtn.addEventListener('click', () => {
-        location.reload();
+        gameArea.style.display = 'none';
+        infoPanel.style.display = 'none';
+        restartBtn.style.display = 'none';
+        square.style.display = 'none';
+        messageDiv.textContent = '';
+        nameForm.style.display = 'flex';
+        playerNameDiv.textContent = '';
+        playerNameDiv.style.display = 'none';
+        nameInput.value = '';
+        difficultySelect.selectedIndex = 0;
+        clearInterval(moveInterval);
+        clearInterval(timerInterval);
       });
       document.body.appendChild(backBtn);
     });
