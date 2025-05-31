@@ -1,59 +1,62 @@
-🧠 Jogo do Reflexo
-🔗 Acesse o jogo online
+🎮 Desafio do Reflexo
 
-📋 Descrição
-O Jogo do Reflexo é um mini game interativo desenvolvido para testar e treinar sua velocidade de reação. O objetivo é clicar no quadrado colorido o mais rápido possível após ele aparecer na tela. O tempo de resposta é registrado e exibido após cada tentativa.
+Um jogo simples e interativo desenvolvido com HTML, CSS e JavaScript para testar seus reflexos! Clique rapidamente no quadrado que aparece aleatoriamente na tela antes que o tempo acabe.
 
-Este projeto é ideal para quem deseja melhorar seus reflexos ou simplesmente se divertir com um desafio rápido e viciante.
+🚀 Funcionalidades
 
-🎮 Como Jogar
-Acesse o jogo através do link: https://jogo-do-reflexo1.vercel.app/
+* ✅ Inserção do nome do jogador
+* ✅ Escolha entre 3 níveis de dificuldade: **Fácil**, **Normal** e **Difícil**
+* ✅ Contagem de pontos conforme o jogador clica no quadrado
+* ✅ Cronômetro regressivo
+* ✅ Ranking com os 10 melhores desempenhos
+* ✅ Teclas de acessibilidade (Enter ou Espaço para clicar no quadrado)
+* ✅ Botão de reinício e retorno ao menu
 
-Aguarde até que o círculo apareça na tela.
+🕹️ Como jogar
 
-Clique no círculo assim que ele surgir.
+1. Insira seu **nome** no campo indicado.
+2. Escolha o **nível de dificuldade** desejado:
 
-O tempo de reação será exibido.
+   * **Fácil**: 50 segundos, quadrado se move lentamente
+   * **Normal**: 40 segundos, quadrado com velocidade média
+   * **Difícil**: 30 segundos, quadrado se move rapidamente
+3. Clique em **Iniciar Jogo**.
+4. Clique no quadrado o máximo possível antes que o tempo acabe.
+5. Veja sua pontuação e posição no ranking ao final.
 
-Clique novamente para jogar outra rodada.
+📁 Estrutura de Arquivos
 
-💡 Funcionalidades
-Cálculo do tempo de reação em milissegundos.
 
-Variação aleatória do tempo de espera antes do círculo aparecer.
+Desafio-do-Reflexo/
+│
+├── index.html            # Página principal do jogo
+├── styles.css            # Estilos principais
+├── responsive.css        # Estilos responsivos
+├── keyframes.css         # Animações
+├── Desafio do Reflexo.png # Ícone do jogo
+└── README.md             # Arquivo de instruções (este)
 
-Reinício automático a cada rodada.
 
-Interface simples e intuitiva.
+💻 Tecnologias Utilizadas
 
-🛠 Tecnologias Utilizadas
-HTML5
+* **HTML5** – Estruturação da página
+* **CSS3** – Estilização e responsividade
+* **JavaScript (Vanilla)** – Lógica do jogo e interatividade
 
-CSS3
+♿ Acessibilidade
 
-JavaScript (puro)
+* O quadrado pode ser acionado via teclado usando **Enter** ou **Barra de Espaço**
+* Elementos têm `aria-label` e atualizações dinâmicas com `aria-live`
 
-Vercel para deploy
+📌 Observações
 
-🚀 Como Executar Localmente
-Se quiser rodar o projeto em seu computador:
+* O ranking é **temporário** e armazenado apenas enquanto a página está aberta (sem persistência em banco de dados ou localStorage).
+* O layout é responsivo e funciona em diversos tamanhos de tela.
 
-Clone o repositório:
+📷 Preview
 
-bash
-Copiar
-Editar
-git clone https://github.com/seu-usuario/jogo-do-reflexo.git
-Acesse a pasta do projeto:
-
-bash
-Copiar
-Editar
-cd jogo-do-reflexo
-Abra o index.html em seu navegador preferido.
-
-📦 Deploy
-O projeto está disponível publicamente através da plataforma Vercel.
+(Sugestão: adicionar aqui um print da tela do jogo)
 
 📄 Licença
-Este projeto está licenciado sob a MIT License — sinta-se à vontade para usá-lo e modificá-lo.
+
+Este projeto é de uso livre para fins educativos ou pessoais. Contribuições e melhorias são bem-vindas!
